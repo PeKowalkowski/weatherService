@@ -18,5 +18,7 @@ public interface SurfingLocationService {
 
   public void addLocations(List<LocationRequest> locationRequests);
 
+  public void deleteLocation(String city);
+
 
 }

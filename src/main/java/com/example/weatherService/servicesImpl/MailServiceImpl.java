@@ -39,7 +39,7 @@ public class MailServiceImpl implements MailService {
 
     }
     String token = tokenService.createInvitationToken(recipientEmail);
-    String subject = "Bet - rejestracja";
+    String subject = "WeatherService - signUp";
     String htmlContent = "Token : " + token;
     sendEmail(recipientEmail, subject, htmlContent);
 

@@ -18,4 +18,7 @@ public interface SurfingLocationController {
 
   @PostMapping("/add-locations")
   public ResponseEntity<String> addLocations(@RequestBody List<LocationRequest> locationRequests);
+
+  @DeleteMapping("/delete-location")
+  public ResponseEntity<String> deleteLocation(@RequestParam String city);
 }

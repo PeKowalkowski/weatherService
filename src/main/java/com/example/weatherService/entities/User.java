@@ -33,14 +33,8 @@ public class User {
   @Column(name = "is_admin")
   private Boolean isAdmin = false;
 
-  @Column(name = "score")
-  private Integer score = 0;
-
   @Column(name = "created_at", nullable = false, updatable = false)
   private LocalDateTime createdAt;
-
-  @Column(name = "updated_at")
-  private LocalDateTime updatedAt;
 
   @Column(name = "ROLES")
   private String roles = "ROLE_USER";

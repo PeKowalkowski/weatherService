@@ -66,4 +66,15 @@ public class SurfingLocationControllerImpl implements SurfingLocationController 
         .body("Error adding locations: " + e.getMessage());
     }
   }
+
+  @Override
+  public ResponseEntity<String> deleteLocation(String city) {
+    try {
+      surfingLocationService.deleteLocation(city);
+      return ResponseEntity.ok("Location deleted successfully");
+    } catch (Exception e) {
+      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+        .body("Error deleting location: " + e.getMessage());
+    }
+  }
 }

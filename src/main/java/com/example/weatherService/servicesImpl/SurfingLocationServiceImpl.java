@@ -83,4 +83,11 @@ public class SurfingLocationServiceImpl implements SurfingLocationService {
 
     locationRepo.saveAll(locationEntities);
   }
+
+  @Override
+  public void deleteLocation(String city) {
+    LocationEntity locationEntity = locationRepo.findByNameIgnoreCase(city)
+      .orElseThrow(() -> new IllegalArgumentException("Location not found: " + city));
+    locationRepo.delete(locationEntity);
+  }
 }
