@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,6 +20,8 @@ public class WeatherApiClientServiceImpl implements WeatherApiClientService {
   private final RestTemplate restTemplate;
   private final ObjectMapper objectMapper;
   private final LocationRepo locationRepo;
+
+
 
   @Value("${weather.api.key}")
   private String apiKey;

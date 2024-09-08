@@ -25,6 +25,8 @@ public class SurfingLocationControllerImpl implements SurfingLocationController 
   private final SurfingLocationServiceImpl surfingLocationService;
 
 
+
+
   @Override
   public ResponseEntity<SurfingLocationResponse> getBestSurfingLocation(String date) {
     try {
