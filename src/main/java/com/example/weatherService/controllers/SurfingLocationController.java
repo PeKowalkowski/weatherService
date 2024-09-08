@@ -1,12 +1,10 @@
 package com.example.weatherService.controllers;
 
 import com.example.weatherService.models.Location;
+import com.example.weatherService.models.LocationRequest;
 import com.example.weatherService.responses.SurfingLocationResponse;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,6 +12,10 @@ import java.util.List;
 public interface SurfingLocationController {
 
   @GetMapping("/best-location")
-  public ResponseEntity<SurfingLocationResponse> getBestSurfingLocation(@RequestBody List<Location> locations,
-                                                                        @RequestParam String date);
+  ResponseEntity<SurfingLocationResponse> getBestSurfingLocation(String date);
+  @PostMapping("/add-location")
+  ResponseEntity<String> addLocation(@RequestParam String city, @RequestParam String country);
+
+  @PostMapping("/add-locations")
+  public ResponseEntity<String> addLocations(@RequestBody List<LocationRequest> locationRequests);
 }

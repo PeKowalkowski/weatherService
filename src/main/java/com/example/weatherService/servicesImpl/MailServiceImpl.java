@@ -25,7 +25,6 @@ public class MailServiceImpl implements MailService {
 
   private final UserRepo userRepo;
   private final TokenService tokenService;
-  //private static final String CLIENT_URL = "http://localhost:4200";
   private final JavaMailSender javaMailSender;
 
 
@@ -41,9 +40,7 @@ public class MailServiceImpl implements MailService {
     }
     String token = tokenService.createInvitationToken(recipientEmail);
     String subject = "Bet - rejestracja";
-   // String invitationLink = CLIENT_URL + "/mail-invitation-signup?token=" + token + "&email=" + recipientEmail;
     String htmlContent = "Token : " + token;
-    //String htmlContent = "Otwórz w <a href=\"" + invitationLink +"\">przeglądarce</a> lub <a href=\"http://192.168.1.38:3010/redirect?url=betmobileapp://signup/" +token + "/" + recipientEmail + "\">na urządzeniu mobilnym</a>";
     sendEmail(recipientEmail, subject, htmlContent);
 
     Map<String, String> response = new HashMap<>();
@@ -69,8 +66,7 @@ public class MailServiceImpl implements MailService {
     helper.setFrom("pekowalkowski@gmail.com");
     helper.setTo(to);
     helper.setSubject(subject);
-    String htmlMsg = "<p><b>Your Login details for Cafe Management System</b><br><b>Email: </b> " +
-      to + " <br><b>Password: </b> " + password + "<br><a href=\"http://localhost:4200/\">Click here to login</a></p>";
+    String htmlMsg = "Password : " + password;
     message.setContent(htmlMsg,"text/html");
     javaMailSender.send(message);
   }

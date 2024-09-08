@@ -32,9 +32,9 @@ public class AuthControllerImpl implements AuthController {
       String token2 = String.valueOf(authService.registerUser(registrationDto2.getToken(), registrationDto2.getPassword()));
       return ResponseEntity.status(HttpStatus.CREATED).body(Collections.singletonMap("token2", token2));
     } catch (UserAlreadyExistException e) {
-      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Collections.singletonMap("error", "Użytkownik o podanym adresie email już istnieje"));
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Collections.singletonMap("error", "The user with the provided email already exists"));
     } catch (Exception e) {
-      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.singletonMap(  "Nie udało się zarejestrować użytkownika", e.getMessage()));
+      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.singletonMap(  "User registration failed\"", e.getMessage()));
     }
   }
 

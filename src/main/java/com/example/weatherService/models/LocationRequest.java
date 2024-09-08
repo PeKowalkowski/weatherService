@@ -7,12 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Location {
-  private String name;
-  private double latitude;
-  private double longitude;
+public class LocationRequest {
+  private String city;
+  private String country;
 
-  public Location(String name) {
-    this.name = name;
-  }
 }
